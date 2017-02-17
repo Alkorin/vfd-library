@@ -76,3 +76,12 @@ void VFD::writeData(const char * s, size_t len)
       digitalWriteFast(pinEnable, 0);  
   }
 }
+
+void VFD::setCustomCharacterFont(const uint8_t character, const uint8_t * data)
+{
+    setCGAddress((character<<3) & 0x3F);
+    for(int i = 0; i < 8; i++)
+    {
+        sendData(data[i]);
+    }
+}

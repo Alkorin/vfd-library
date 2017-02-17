@@ -18,6 +18,9 @@ class VFD_Buffered : private VFD {
     // Update VFD
     void show();
 
+    // Subclass funcs
+    using VFD::setCustomCharacterFont;
+
   private:
     char buffer[NB_LINES*NB_CHARS];
     uint8_t currentOffset;

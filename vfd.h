@@ -37,6 +37,7 @@ class VFD {
     // Brightness control -- 666ns (need to send FunctionSet before)
     
     // Set CG RAM Address -- 666 ns
+    void setCGAddress(uint8_t a) { sendCommand(0x40 | a); }
     
     // Set DD Ram Address -- 666 ns
     void setCursorAddress(uint8_t a) { sendCommand(0x80 | a); }
@@ -46,6 +47,7 @@ class VFD {
     void writeChar(char c) { sendData(c); }
     void writeData(const char * d, size_t len);
     void writeString(const char * s);
+    void setCustomCharacterFont(const uint8_t character, const uint8_t * data);
 
 
 
